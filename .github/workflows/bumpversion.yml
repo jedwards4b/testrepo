@@ -16,7 +16,7 @@ jobs:
           create_annotated_tag: true
           default_bump: patch
           dry_run: false
-          tag_prefix: manic-
+          tag_prefix: v
   write-version:
     runs-on: ubuntu-latest
     name: Write Version to File
