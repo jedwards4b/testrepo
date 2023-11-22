@@ -17,7 +17,7 @@ jobs:
           fetch-depth: 0
 
       - name: GenerateTag
-        id: fake_tag_version
+        id: name_tag
         uses: mathieudutour/github-tag-action@v6.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -27,7 +27,7 @@ jobs:
           tag_prefix: v
       - name: Update version.txt
         run: |
-          echo ${{ steps.GenerateTag.outputs.new_tag }} > /version.txt
+          echo "${{ steps.name_tag.outputs.new_tag }}" > /version.txt
       - name: Amend the last commit
         run: |
           git config --global user.email "gitbot@openrct2.org"
